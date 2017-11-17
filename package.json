@@ -1,0 +1,25 @@
+{
+  "name": "fthwebsite",
+  "version": "1.0.0",
+  "description": "fthwebsite pre-launch",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cathfish/FTHwebsite.git"
+  },
+  "author": "catherine fisher, andrew wreggelsworth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cathfish/FTHwebsite/issues"
+  },
+  "homepage": "https://github.com/Cathfish/FTHwebsite#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "bootstrap-select": "^1.12.4",
+    "jquery": "^3.2.1",
+    "requirejs": "^2.3.5"
+  }
+}
