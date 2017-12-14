@@ -21,22 +21,31 @@ function includesFandom(objectsArray, fandom){
 }
 
 function parser(fandomsFile) {
+	var addToAll = 0;
 	var csvFandoms = fandomsFile.split("\n");
 
 	csvFandoms.forEach(function(fandomString){
 	  	if(fandomString.search("1") === -1){	//looking for a 1 to see if it is a weird input. If no 1 is found (returns -1), continue with the function
 	  		var fandomStringArray = fandomString.split(", ");
 	    	fandomStringArray.forEach(function(fandomName) {
-	      		var fandomObject = {name:fandomName, frequency:1};
-	      		var i = includesFandom(fandomObjectsArray, fandomName);
-      			if(i === -1){
-      				fandomObjectsArray.push(fandomObject);
-      			}
-      			else{
-      				fandomObjectsArray[i].frequency++;
-      			}
+	    		if(fandomName === "Any" || fandomName === "any"){
+	    			addToAll++;
+	    		}
+	    		else{
+		    		var fandomObject = {name:fandomName, frequency:1};
+		      		var i = includesFandom(fandomObjectsArray, fandomName);
+	      			if(i === -1){
+	      				fandomObjectsArray.push(fandomObject);
+	      			}
+	      			else{
+	      				fandomObjectsArray[i].frequency++;
+	      			}
+	    		}
 	    	});
 	  	}
+	});
+	fandomObjectsArray.forEach(function(fandom){
+		fandom.frequency += addToAll;
 	});
 }
 
